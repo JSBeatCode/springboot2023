@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.IDemoDAO">
+    <select id="selectAll" resultType="com.example.demo.model.DemoModel">
+        select
+            id as id,
+            code as code,
+            detail as detail,
+            sub_model as sub_model
+        from public.demo
+    </select>
+    
+    <select id="selectOne" parameterType="String" resultType="com.example.demo.model.DemoModel">
+        select
+            id as id,
+            code as code,
+            detail as detail,
+            sub_model as sub_model
+        from public.demo
+        where id = #{id}
+    </select>
+    
+    <update id="updateDemo" parameterType="com.example.demo.model.DemoModel">
+        update public.demo
+            set code = #{code},
+            detail = #{detail}
+        where
+            id = #{id}
+    </update>
+</mapper>

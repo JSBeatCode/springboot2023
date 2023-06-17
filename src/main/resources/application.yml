@@ -1,0 +1,64 @@
+server:
+    port: 8081
+    
+spring:
+    application:
+        name: demo
+    datasource:
+        url: jdbc:postgresql://localhost:5432/postgres
+        username: postgres
+        password: jsdno4273
+        opt:
+            int:
+                initialSize: 0
+                maxActive: 4
+                maxIdle: 4
+                minIdle: 0
+    mvc:
+        converters:
+            preferred-json-mapper: gson
+            
+logging:
+    maxHistory: 10
+    maxFileSize: 100MB
+    totalSizeCap: 10GBioo
+    file:
+        path: C:/Users/USER/Documents/jsd/programming/spring/workspace/demo/src/main/resources/logs
+        name: myapp.log
+        max-size: 100MB
+        max-history: 7
+        total-size-cap: 10GB
+    level:
+        root: INFO
+        com.example.demo: DEBUG
+        
+log:
+    ibatis: true
+    # logback.xml의 config 설정을 사용하려면 아래의 것 주석 풀기
+    config: classpath:config/logback.xml
+
+constants:
+    data: CONST_DATA
+    thread: false
+    
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+#    enabled: true
+#    service-url:
+#        defaultZone: http://localhost:8081/eureka/
+# @EnableEurekaClient로 등록한 서비스 spring의 경우는 아래처럼 코딩함. 여기는 server로 되어 있는 위에처럼 eureka header main의 프로젝트임  
+#eureka:
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone : http://admin:admin@localhost:8761/eureka/
+#  instance:
+#    hostname: localhost
+
+jwt:
+  header: Authorization
+  secret: tokenValidationKey
+  token-validity-in-seconds: 86400

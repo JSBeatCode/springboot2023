@@ -1,0 +1,25 @@
+[1. 실행]
+SecurityConcig
+	bean 로드
+		authenticationManager()
+		authenticationProvider()
+		userDetailsService()
+		passwordEncoder()
+		securityFilterChain()
+		
+[2. /authentication 호출: user 검증 후 token 생성]
+JwtAuthFilter
+	oncePerRequestFilter
+		doFilterInternal(): 토큰검증
+
+(토큰이 없는 경우)
+AuthenticationController
+	authenticate(): api
+	
+
+		
+[3. https://jwt.io/ 접속: 토큰 상세내용 보기]
+사이트에 접속해서 /authentication으로 받은 token을 넣고 payload의 상세 내용 보기 (expiration date 등)
+
+[4. /greetings 다시: auth의 Bearer Token설정에 prefix에 bearer를 포함시키고 아까 2번의 토큰을 넣어서 다시 호출하기]
+

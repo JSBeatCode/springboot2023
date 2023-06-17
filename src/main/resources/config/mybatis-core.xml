@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="callSettersOnNulls" value="true"/>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+        <setting name="cacheEnabled" value="false"/>
+        <setting name="lazyLoadingEnabled" value="false"/>
+        <setting name="multipleResultSetsEnabled" value="true"/>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="defaultExecutorType" value="REUSE"/>
+        <setting name="defaultStatementTimeout" value="1000"/>
+        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+    </settings>
+    
+    <typeAliases>
+        <package name="com.example.demo.model"/>
+        <package name="com.google.gson"/>
+    </typeAliases>
+    
+    <typeHandlers>
+        <typeHandler javaType="java.util.Map" handler="com.example.demo.utility.type.handler.MapTypeHandler"/>
+        <typeHandler javaType="com.google.gson.JsonObject" handler="com.example.demo.utility.type.handler.JsonObjectTypeHandler"/>
+        <!-- <typeHandler javaType="com.example.demo.model.DemoModel" handler="com.example.demo.utility.type.handler.ModelTypeHandler"/>-->
+    </typeHandlers>
+    
+    <databaseIdProvider type="DB_VENDOR">
+        <property name="SQL Server" value="sqlserver"/>
+        <property name="DB2" value="db2"/>
+        <property name="Oracle" value="oracle"/>
+        <property name="PostgreSQL" value="postgresql"/>
+    </databaseIdProvider>
+    
+    <mappers>
+        <mapper resource="mapper/demo-sql.xml"/>
+    </mappers>
+</configuration>

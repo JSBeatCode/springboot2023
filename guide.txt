@@ -1,0 +1,23 @@
+> java, spring boot, maven, .cert, 등 기타 보안 및 환경 세팅
+> /src/main/resources/server
+> npm install
+> npm run start
+> postgresql 설치
+> /src/main/resources/demo.sql 실행
+> Application.java 부트 실행
+
+// Header
+Content-Type: application/json; charset=UTF-8
+Authorization: 123
+// body
+{
+    "id": "id001",
+    "code": "test2",
+    "detail": {
+        "test":"test1"
+    },
+    "subModel": {
+        "subId":"ddd1",
+        "subId":"ttt1",
+    }
+}
